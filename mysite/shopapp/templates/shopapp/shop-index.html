@@ -1,0 +1,9 @@
+{% extends 'shopapp/base.html' %}
+{% block title %}{{ title }}{% endblock %}
+{% block body %}
+    <div>shop index file</div>
+    <ul>
+        {% for product, price in products %}<li>Product: {{ product }}, price: {{ price }}</li>{% endfor %}
+    </ul>
+    <div>{% lorem 5 p %}</div>
+{% endblock %}
