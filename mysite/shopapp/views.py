@@ -2,6 +2,7 @@ from django.http import HttpResponse, HttpRequest
 
 from django.shortcuts import render
 from django.contrib.auth.models import Group
+from .models import Product
 
 # Create your views here.
 
@@ -20,3 +21,10 @@ def groups_list(request: HttpRequest):
         "groups": Group.objects.all(),
     }
     return render(request, 'shopapp/groups-list.html', context=context)
+
+
+def product_list(request: HttpRequest):
+    context = {
+        "products": Product.objects.all(),
+    }
+    return render(request, 'shopapp/product-list.html', context)
