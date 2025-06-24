@@ -1,0 +1,26 @@
+{% extends 'shopapp/base.html' %}
+
+{% block title %}
+Order
+{% endblock %}
+
+{% block body %}
+
+<ul>
+  {% if orders %}
+
+  {% for order in orders %}
+
+  <li>
+    <p>Adress: {{  order.delvery_address  }}</p>
+    <p>Sale: {{   order.promocode  }}</p>
+    <p>User: {{   order.user }}</p>
+    
+  </li>
+
+  {% endfor %}
+
+  {% endif %}
+</ul>
+
+{% endblock %}

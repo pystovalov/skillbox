@@ -2,7 +2,7 @@ from django.http import HttpResponse, HttpRequest
 
 from django.shortcuts import render
 from django.contrib.auth.models import Group
-from .models import Product
+from .models import Product, Order
 
 # Create your views here.
 
@@ -28,3 +28,10 @@ def product_list(request: HttpRequest):
         "products": Product.objects.all(),
     }
     return render(request, 'shopapp/product-list.html', context)
+
+
+def orders(request: HttpRequest):
+    context = {
+        "orders": Order.objects.select_related("user").all(),
+    }
+    return render(request, 'shopapp/order-list.html', context)
